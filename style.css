@@ -67,6 +67,24 @@
             .row-a {
                 display: flex;
                 justify-content: space-around;
+                align-items: center;
+                padding: 2rem 0 1rem 0;
+            }
+
+            .page-views {
+                display: flex;
+                letter-spacing: 2px;
+            }
+
+            .pricing {
+                display: flex;
+                align-items: center;
+            }
+
+            .large-text {
+                font-size: 30px;
+                font-weight: 800;
+                color: hsl(227, 35%, 25%);
             }
 
             
@@ -77,9 +95,24 @@
                 justify-content: center;
             }
 
+            .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 23px;
+                height: 24px;
+                border: 0;
+                background: url('/images/icon-slider.svg');
+                cursor: pointer;
+              }
+              
+              .slider::-moz-range-thumb {
+                width: 23px;
+                height: 25px;
+                border: 0;
+                background: url('/images/icon-slider.svg');
+                cursor: pointer;
+              }
             
-
-
 
 
 
@@ -88,6 +121,7 @@
                 justify-content: space-evenly;
                 align-items: center;
                 margin-bottom: 5px;
+                padding: 1rem 0 2rem 0;
             }
 
             .row-c :nth-child(1) {

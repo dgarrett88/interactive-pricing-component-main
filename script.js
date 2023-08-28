@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const customRange = document.querySelector(".custom-range");
+    const customRange = document.querySelector(".slider");
     const customValueLabel = document.getElementById("customValueLabel");
     const customPrice = document.querySelector(".price-tag");
   
