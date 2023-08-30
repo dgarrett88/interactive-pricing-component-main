@@ -2,7 +2,8 @@
 const toggleBox = document.querySelector(".toggle-checkbox");
 const customRange = document.querySelector(".slider");
 const customValueLabel = document.getElementById("customValueLabel");
-const customPrice = document.querySelector(".price-tag");
+const desktopPriceTag = document.querySelector(".desktop-row .price-tag");
+const mobilePriceTag = document.querySelector(".mobile-row .price-tag");
 const discountText = document.querySelector(".discount-text");
 
 // Define values for labels and prices
@@ -12,14 +13,13 @@ const price = [8, 12, 16, 24, 36];
 // Function to update price and labels
 const updatePrice = () => {
     const value = parseInt(customRange.value);
-    customValueLabel.textContent = valueLabels[value - 1];
     
     // Apply discount if toggle is on
-    if (isDiscountApplied) {
-        customPrice.textContent = price[value - 1] * 0.75;
-    } else {
-        customPrice.textContent = price[value - 1];
-    }
+    let calculatedPrice = isDiscountApplied ? price[value - 1] * 0.75 : price[value - 1];
+
+    customValueLabel.textContent = valueLabels[value - 1];
+    desktopPriceTag.textContent = calculatedPrice;
+    mobilePriceTag.textContent = calculatedPrice;
 
     // Calculate the progress based on the range
     const range = customRange.max - customRange.min;
@@ -27,7 +27,6 @@ const updatePrice = () => {
 
     customRange.style.background = `linear-gradient(to right, #a5f3eb ${progress}%, #ccc ${progress}%)`;
 };
-
 
 // Function to update discount text
 const updateDiscountText = () => {
