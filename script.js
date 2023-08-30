@@ -3,6 +3,7 @@ const toggleBox = document.querySelector(".toggle-checkbox");
 const customRange = document.querySelector(".slider");
 const customValueLabel = document.getElementById("customValueLabel");
 const customPrice = document.querySelector(".price-tag");
+const discountText = document.querySelector(".discount-text");
 
 // Define values for labels and prices
 const valueLabels = ["10K", "50K", "100K", "500K", "1M"];
@@ -19,6 +20,22 @@ const updatePrice = () => {
     } else {
         customPrice.textContent = price[value - 1];
     }
+
+    // Calculate the progress based on the range
+    const range = customRange.max - customRange.min;
+    const progress = ((value - customRange.min) / range) * 100;
+
+    customRange.style.background = `linear-gradient(to right, #a5f3eb ${progress}%, #ccc ${progress}%)`;
+};
+
+
+// Function to update discount text
+const updateDiscountText = () => {
+    if (window.matchMedia("(max-width: 600px)").matches) {
+        discountText.textContent = '-25%';
+    } else {
+        discountText.textContent = '25% discount';
+    }
 };
 
 // Track whether the discount is applied
@@ -32,3 +49,12 @@ toggleBox.addEventListener('click', () => {
 
 // Event listener for range input change
 customRange.addEventListener("input", updatePrice);
+
+// Event listener for window resize
+window.onresize = updateDiscountText;
+
+// Update discount text on page load
+updateDiscountText();
+
+// Runs the track gradient on page load
+updatePrice();
