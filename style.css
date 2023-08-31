@@ -90,16 +90,22 @@
 .pricing {
   display: flex;
   align-items: center;
-  margin: 5px 0rem 5px 0;
+  margin: 5px 3px 5px 0;
   font-size: 15px;
+  width: 100%;
   
 }
 
 .large-text {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 800;
   color: hsl(227, 35%, 25%);
 }
+
+.decimal {
+    padding-right: .63rem;
+}
+
 
 .row-b {
   display: flex;
